@@ -21,10 +21,20 @@ function play_board() {
 
     for (let i = 0; i < 20; i++) {
         let line = document.createElement("div")
-        let lineHeight = 650 / 20 // Calcule la hauteur de chaque ligne
+        let line_height = 650 / 20 // Calcule la hauteur de chaque ligne
         line.style.width = "1000px"
-        line.style.height = lineHeight + "px"
+        line.style.height = line_height + "px"
         line.id = "line_" + i
         board.appendChild(line)
+
+        for (let j = 0; j < 25; j++) { // 25 images par ligne (20 lignes * 25 images = 500 images)
+            let image = document.createElement("img")
+            image.src = "carre.png"
+            let image_width = 1000 / 25 // Ajustez la largeur de l'image en fonction du nombre d'images par ligne
+            image.style.width = image_width + "px"
+            image.style.height = line_height + "px"
+            image.id = "image_" + i + "_" + j // ID unique pour chaque image
+            line.appendChild(image)
+        }
     }
 }
