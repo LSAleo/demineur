@@ -5,6 +5,7 @@ let board
 let tile
 let line
 let icon
+let line_height
 
 play_board()
 
@@ -20,9 +21,10 @@ function play_board() {
     board.style.backgroundColor = "#A5A5A5"
     document.body.appendChild(board)
 
+    line_height = 650 / 20 // Calcule la hauteur de chaque ligne
+
     for (let i = 0; i < 20; i++) {
         let line = document.createElement("div")
-        let line_height = 650 / 20 // Calcule la hauteur de chaque ligne
         line.style.width = "1000px"
         line.style.height = line_height + "px"
         line.id = "line_" + i
@@ -45,13 +47,6 @@ function play_board() {
 function imageClickHandler() {
     console.log("Image cliquée! ID: " + this.id)
 
-    let icon = document.createElement("i")
-    icon.className = "fa-solid fa-flag fa-bounce"
-    icon.style.color = "#ff0000"
-    icon.style.position = "absolute" // Position absolue par rapport à l'image
-    icon.style.top = "0" // Aligné en haut de l'image
-    icon.style.left = "0" // Aligné à gauche de l'image
-
-    // Ajoute l'icône à l'image cliquée
-    this.appendChild(icon)
+    let icon = document.getElementById(this.id)
+    icon.src = "drapeau-rouge.png"
 }
