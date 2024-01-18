@@ -38,15 +38,16 @@ function play_board() {
             image.style.height = line_height + "px"
             image.id = "image_" + i + "_" + j // ID unique pour chaque image
             image.style.cursor = "pointer" // Ajoute une propriété de curseur pour indiquer que l'image est cliquable
-            image.addEventListener("click", imageClickHandler) // Ajoute un gestionnaire d'événements pour le clic
+            image.addEventListener("contextmenu", imageRightClickHandler)
             line.appendChild(image)
         }
     }
 }
 
-function imageClickHandler() {
-    console.log("Image cliquée! ID: " + this.id)
+function imageRightClickHandler(event) {
+    event.preventDefault(); // Empêche le menu contextuel par défaut de s'afficher
+    console.log("Clic droit sur l'image! ID: " + this.id);
 
-    let icon = document.getElementById(this.id)
-    icon.src = "drapeau-rouge.png"
+    let icon = document.getElementById(this.id);
+    icon.src = "drapeau-rouge.png";
 }
