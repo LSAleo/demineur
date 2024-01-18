@@ -46,8 +46,15 @@ function play_board() {
 
 function imageRightClickHandler(event) {
     event.preventDefault(); // Empêche le menu contextuel par défaut de s'afficher
-    console.log("Clic droit sur l'image! ID: " + this.id);
+    console.log("Clic droit sur l'image! ID: " + this.id)
 
-    let icon = document.getElementById(this.id);
-    icon.src = "drapeau-rouge.png";
+    let icon = document.getElementById(this.id)
+
+    if (icon.src.includes("drapeau-rouge.png")) {
+        // Si l'image actuelle est un drapeau, remettre l'image "carre.png"
+        icon.src = "carre.png"
+    } else {
+        // Sinon, mettre l'image "drapeau-rouge.png"
+        icon.src = "drapeau-rouge.png"
+    }
 }
